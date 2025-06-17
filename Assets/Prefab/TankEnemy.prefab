@@ -42,9 +42,8 @@ GameObject:
   - component: {fileID: 164129544367463227}
   - component: {fileID: -6869894430848478680}
   - component: {fileID: 3285235990988255660}
-  - component: {fileID: 9136659395425335742}
-  - component: {fileID: 2657674612991898212}
   - component: {fileID: 8778342740179308016}
+  - component: {fileID: 8829541984789790108}
   m_Layer: 0
   m_Name: TankEnemy
   m_TagString: enemy
@@ -92,7 +91,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -109,44 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 8
-  scoreValue: 10
+  scoreValue: 15
   podeDividir: 0
   prefablittleEnemy: {fileID: 0}
   quantidadeDividir: 0
---- !u!195 &9136659395425335742
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648487710549920101}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3
-  m_Acceleration: 5
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 6
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &2657674612991898212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648487710549920101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385cd278c1753424a8bd819208e4cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8778342740179308016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +130,21 @@ MonoBehaviour:
   burstCount: 3
   projectilePrefab: {fileID: 392235847564530022, guid: 68669d8143bbdbb4abb6748b39e6a718, type: 3}
   firePoint: {fileID: 2936780647832314887}
+--- !u!114 &8829541984789790108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648487710549920101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17314150da485744f85724be9168e403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  moveSpeed: 3
+  waitTime: 1
 --- !u!1 &7343550803580749187
 GameObject:
   m_ObjectHideFlags: 0

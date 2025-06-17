@@ -2,28 +2,44 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
-    //serve pra saber se o jogo já está pausado ou não quando o jogador aperta ESC
+    // serve pra saber se o jogo já está pausado ou não
     private bool isPaused = false;
+
+    public GameObject pauseMenu;  
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // vai alternar o estado do jogo entre pausado e rodando
             TogglePause();
         }
     }
 
-    void TogglePause()
+    public void TogglePause()
     {
-        //inverte o valor atual de isPaused, pausa ou despausa o jogo
         isPaused = !isPaused;
 
-        // 1f = tempo normal  0f = tempo parado 
-        /*O ? significa que se isPaused for true, o valor será 0f (pausa) e se isPaused for false, o valor será 1f (retoma)*/
         Time.timeScale = isPaused ? 0f : 1f;
 
-        // Debug só pra testar
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(isPaused);
+        }
+
         Debug.Log(isPaused ? "Jogo pausado" : "Jogo retomado");
+    }
+
+    // Método para despausar pelo botão "Continuar"
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
+
+        Debug.Log("Jogo retomado pelo botão");
     }
 }

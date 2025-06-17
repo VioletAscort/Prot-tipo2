@@ -7,7 +7,7 @@ public class Colisor : MonoBehaviour
     public float EnemyLife = 5;
 
     [Header("Pontuação")]
-    public int scoreValue = 10; // <<< Adicione isso
+    public int scoreValue = 10; 
 
     [Header("Divisão do inimigo")]
     public bool podeDividir = false;
@@ -31,7 +31,7 @@ public class Colisor : MonoBehaviour
                     ScoreManager.Instance.AddScore(scoreValue); // <<< Usa o valor configurado
                 }
 
-                // Divide em inimigos menores (se configurado)
+                // Divide em inimigos menores 
                 if (podeDividir && prefablittleEnemy != null)
                 {
                     for (int i = 0; i < quantidadeDividir; i++)
