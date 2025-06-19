@@ -36,6 +36,8 @@ public class CheckboxPlayButton : MonoBehaviour
 
     void LoadScene()
     {
+        //garante que o tempo volte ao normal
+        Time.timeScale = 1f;
         //Usa o SceneManager para carregar a cena com o nome indicado em sceneToLoad
         SceneManager.LoadScene(sceneToLoad);
     }

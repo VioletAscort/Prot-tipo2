@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class CheckboxBackMenu : MonoBehaviour
 {
@@ -23,8 +24,25 @@ public class CheckboxBackMenu : MonoBehaviour
 
         SetCheckbox(true);
         Debug.Log("CARREGANDO CENA: " + sceneToLoad);
-        SceneManager.LoadScene(sceneToLoad);
 
+        StartCoroutine(LoadSceneAfterDelay());
+    }
+
+    IEnumerator LoadSceneAfterDelay()
+    {
+        // Espera 0.3 segundos reais (independente do timeScale)
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        // Garante que o tempo volte ao normal
+        Time.timeScale = 1f;
+
+        // (Opcional) destrói o controlador de pausa, se ainda existir
+        PauseController pauseController = Object.FindFirstObjectByType<PauseController>();
+        if (pauseController != null)
+            Destroy(pauseController.gameObject);
+
+        // Carrega a cena desejada
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     void SetCheckbox(bool marked)
@@ -35,4 +53,3 @@ public class CheckboxBackMenu : MonoBehaviour
             checkboxImage.sprite = marked ? checkboxMarked : checkboxEmpty;
     }
 }
-
